@@ -1,19 +1,14 @@
 <div align="center">
 
-### 🌐 *GraphWalker: Agentic Knowledge Graph Question Answering via Synthetic Trajectory Curriculum*
+# 🤖 *GraphWalker: Agentic Knowledge Graph Question Answering via Synthetic Trajectory Curriculum*
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2603.28533">
-    <img src="https://img.shields.io/badge/arXiv-2603.28533-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"/>
-  </a>
-  &nbsp;
-  <a href="https://huggingface.co/xushuwen23/GraphWalker-7B">
-    <img src="https://img.shields.io/badge/🤗%20HuggingFace-GraphWalker--7B-ffd21e?style=for-the-badge" alt="HuggingFace"/>
-  </a>
-</p>
-
-<p align="center">
-  <b>GraphWalker</b> transforms LLMs into autonomous KG reasoning agents, navigating massive knowledge graphs through a <i>Think-Query-Observe</i> loop — optimized via a three-stage synthetic curriculum.
+  <!-- arXiv 链接 -->
+  <a href="https://arxiv.org/abs/2603.28533"><img src="https://img.shields.io/badge/arXiv-2603.28533-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"/></a>&nbsp;
+  <!-- 模型链接 -->
+  <a href="https://huggingface.co/xushuwen23/GraphWalker-7B"><img src="https://img.shields.io/badge/🤗%20Model-GraphWalker--7B-ffd21e?style=for-the-badge" alt="HuggingFace"/></a>&nbsp;
+  <!-- 协议 -->
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-green?style=for-the-badge" alt="License"/></a>
 </p>
 
 </div>
@@ -25,7 +20,7 @@
 | Date | Update |
 |------|--------|
 | 🚀 **2026.03** | GraphWalker achieves **SOTA** on **CWQ (79.6 EM)** and **WebQSP (91.5 EM)** among all agentic KGQA methods |
-| 🔗 **2026.03** | Integrated RL training with the **[Slime](https://github.com/THUDM/slime)** framework and SFT with **[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)** |
+| 🔗 **2026.03** | Implemented SFT with **[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)** and RL training with the **[Slime](https://github.com/THUDM/slime)** framework |
 
 ---
 
@@ -44,8 +39,7 @@
 
 ## 🧭 The Core Concept
 
-GraphWalker tackles the twin bottlenecks of **data scarcity** and **reasoning generalization** in KGQA through a structured **Three-Stage Curriculum**:
-
+Existing KGQA paradigms are limited by static reasoning scopes and a lack of autonomous, global-scale exploration, leading to poor generalization on complex structures. **GraphWalker** overcomes these by establishing a robust exploration and error-recovery prior through a two-stage synthetic curriculum, unlocking a superior reasoning ceiling via RL on global knowledge graphs.
 
 ![Paradigm Comparison](assets/figure1.png)
 
