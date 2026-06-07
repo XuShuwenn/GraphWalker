@@ -1,0 +1,1 @@
+python -m kgqa_agent.scripts.conjunction_walk --config kgqa_agent/configs/conjunction/conjunction_walk_100k.yaml

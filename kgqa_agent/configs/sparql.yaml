@@ -1,0 +1,9 @@
+endpoint: http://localhost:18890/sparql
+user: dba
+password: dba
+query_timeout_ms: 20000
+timeout_s: 20
+max_rows: 10000
+retry:
+  attempts: 5
+  backoff_ms: 300

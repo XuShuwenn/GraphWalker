@@ -197,49 +197,95 @@ pip install -r requirements.txt
 
 Follow [`virtuoso-opensource/README.md`](virtuoso-opensource/README.md) to load Freebase and verify your `SPARQL_ENDPOINT` is accessible before running any evaluation.
 
+### 3 · Environment Configuration
+
+```bash
+# Edit the .env file with your API keys
+nano .env  # or use your preferred editor
+```
+
+**Required variables:**
+- `OPENAI_API_KEY`: Your OpenAI API key (or compatible API service key)
+- `OPENAI_BASE_URL`: Custom API endpoint (for Azure, local vLLM, etc.)
+- `FILTER_API_KEY`: Separate API key for relation filtering (to avoid rate limiting)
+- `FILTER_API_URL`: Separate endpoint for relation filtering
+- `FILTER_MODEL`: Model for relation filtering (default: `gpt-4o-mini`)
+
+
 ---
 
 ## 🚀 Quick Start
 
 ### 1 · Evaluation (vLLM)
 
-```bash
-vllm serve "/path/to/GraphWalker-7B" \
-    --host 0.0.0.0 --port 22240 \
-    --served-model-name graphwalker-7b \
-    --gpu-memory-utilization 0.9 --dtype auto \
-    --chat-template "/path/to/chat_template.jinja"
-```
+**Step 1: Download the pretrained model**
 
 ```bash
+# Option 1: Using HuggingFace CLI
+pip install huggingface_hub
+huggingface-cli download xushuwen23/GraphWalker-7B --local-dir models/GraphWalker-7B
+
+# Option 2: Using git-lfs
+git lfs install
+git clone https://huggingface.co/xushuwen23/GraphWalker-7B models/GraphWalker-7B
+```
+
+**Step 2: Start vLLM server**
+
+```bash
+vllm serve "models/GraphWalker-7B" \
+    --host 0.0.0.0 --port 22240 \
+    --served-model-name graphwalker-7b \
+    --gpu-memory-utilization 0.9 \
+    --dtype auto \
+    --chat-template "templates/chat_template.jinja"
+```
+
+**Step 3: Run evaluation**
+
+```bash
+# Ensure your .env file is configured with API keys
 bash run_eval_remote_vllm.sh
 ```
 
-> 💡 Download the pretrained model from [🤗 HuggingFace](https://huggingface.co/xushuwen23/GraphWalker-7B)
+> 💡 **Model Source**: Download from [🤗 HuggingFace](https://huggingface.co/xushuwen23/GraphWalker-7B)
 
 ### 2 · Data Generation
 
 ```bash
 # Step 1 — Random walk path generation
+# Generates random paths on the knowledge graph
 python kgqa_agent/scripts/random_walk.py \
     --config kgqa_agent/configs/random_walk/3-5hop/random_walk_10k.yaml
 
 # Step 2 — QA / Info synthesis / Trajectory generation
+# Generates questions, synthesizes information, and creates training trajectories
 bash pipeline_scripts/qa_gen.sh
 bash pipeline_scripts/info_syn.sh
 bash pipeline_scripts/traj_gen.sh
 ```
 
+> 📝 **Note**: Data generation requires API access for LLM-based question generation. Configure your API keys in `.env` before running these scripts.
+
 ### 3 · Training
 
-**SFT** — Use [LLaMA-Factory](https://github.com/hiyouga/LlamaFactory) for stage-wise fine-tuning.
+**SFT (Supervised Fine-Tuning)** — Use [LLaMA-Factory](https://github.com/hiyouga/LlamaFactory) for stage-wise fine-tuning with the generated trajectory data.
 
-**RL (GRPO)** — Run via the [Slime](https://github.com/THUDM/slime) framework:
+**RL (GRPO)** — Run reinforcement learning via the [Slime](https://github.com/THUDM/slime) framework with Docker environment:
 
 ```bash
-cd slime/examples/graphwalker
-bash examples/graphwalker/run_qwen2.5_7B_sft.sh
+# Pull the official Slime Docker image
+docker pull rlsys/slime:latest
+
+# Run RL training in Docker container
+docker run --gpus all -it --rm \
+  -v $(pwd)/slime/examples/graphwalker:/workspace/examples/graphwalker \
+  -v $(pwd)/kgqa_agent/data:/workspace/data \
+  rlsys/slime:latest \
+  bash /workspace/examples/graphwalker/run_qwen2.5_3B_it.sh
 ```
+
+> 🐳 **Docker Environment**: We use the official [rlsys/slime](https://hub.docker.com/r/rlsys/slime) Docker image for consistent RL training environment.
 
 ---
 

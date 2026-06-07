@@ -1,0 +1,26 @@
+seed: 42
+walks:
+  num_starts: 10000
+  max_attempts: 40000
+  require_unique_centers: true
+  max_answer_candidates: 3  # Only accept paths where answer entity has <= 3 candidates
+  start_pool_size: 4096      # Size of start entity candidate pool
+  pred_sample_m: 256          # Number of predicates to sample for start entity selection
+  per_pred_pool_k: 32        # Number of entities to sample per predicate
+  batch_size: 16              # Parallel workers per batch (1 = sequential, >1 = parallel)
+
+output:
+  dir: kgqa_agent/data/conjunction/paths
+  file_name: conjunction_paths_10k
+
+sparql:
+  config: kgqa_agent/configs/sparql.yaml
+
+# Optional: filter predicates (same format as random_walk)
+allow-predicates-json: datasets/predicates_white_list/filtered_cwq_white_list.json
+allow-predicates-top-k: 0
+
+# Optional: start entity sampling based on predicates (in-domain)
+start-predicates-json: datasets/predicates_white_list/filtered_cwq_white_list.json
+start-predicates-top-k: 0
+

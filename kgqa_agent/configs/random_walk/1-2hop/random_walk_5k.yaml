@@ -1,0 +1,26 @@
+seed: 42
+walks:
+  num_starts: 10000
+  max_hops: 2
+  min_hops: 2
+  max_attempts: 1000000
+  start_pool_size: 4096
+  neigh_pool_size: 20
+  pred_sample_m: 256
+  per_pred_pool_k: 32
+  batch_size: 16
+  include_names: true
+
+output:
+  dir: kgqa_agent/data/1-2hop/test_5k/paths
+  file_name: st4096_bs16
+
+sparql:
+  config: kgqa_agent/configs/sparql.yaml
+
+allow-predicates-json: datasets/predicates_white_list/filtered_cwq_white_list.json
+allow-predicates-top-k: 0
+
+start-predicates-json: datasets/predicates_white_list/filtered_cwq_white_list.json
+start-predicates-top-k: 0
+
