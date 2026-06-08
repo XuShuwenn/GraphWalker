@@ -1,26 +1,27 @@
 <div align="center">
 
-# 🤖 *GraphWalker: Agentic Knowledge Graph Question Answering via Synthetic Trajectory Curriculum*
+# <img src="assets/graphwalker_icon.png" width="256" height="256" style="vertical-align:middle"> 
+
+# *GraphWalker: Agentic Knowledge Graph Question Answering via Synthetic Trajectory Curriculum*
 
 <p align="center">
   <!-- arXiv 链接 -->
   <a href="https://arxiv.org/abs/2603.28533"><img src="https://img.shields.io/badge/arXiv-2603.28533-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"/></a>&nbsp;
   <!-- 模型链接 -->
   <a href="https://huggingface.co/xushuwen23/GraphWalker-7B"><img src="https://img.shields.io/badge/🤗%20Model-GraphWalker--7B-ffd21e?style=for-the-badge" alt="HuggingFace"/></a>&nbsp;
-  <!-- 协议 -->
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-green?style=for-the-badge" alt="License"/></a>
+  <!-- 数据集 -->
+  <a href="https://huggingface.co/datasets/xushuwen23/GraphWalkerBench"><img src="https://img.shields.io/badge/🤗%20Dataset-GraphWalkerBench-ffd21e?style=for-the-badge" alt="Dataset"/></a>
 </p>
 
 </div>
 
 ---
 
-## 📢 News
+## 🔥 News
 
-| Date | Update |
-|------|--------|
-| 🚀 **2026.03** | GraphWalker achieves **SOTA** on **CWQ (79.6 EM)** and **WebQSP (91.5 EM)** among all agentic KGQA methods |
-| 🔗 **2026.03** | Implemented SFT with **[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)** and RL training with the **[Slime](https://github.com/THUDM/slime)** framework |
+[2026-03-31] 🤗 The [GraphWalkerBench](https://huggingface.co/datasets/xushuwen23/GraphWalkerBench) dataset is now available. Give it a shot!  
+[2026-03-31] 🏆 GraphWalker achieves **SOTA** on **CWQ (79.6 EM)** and **WebQSP (91.5 EM)** among all agentic KGQA methods!  
+[2026-03-31] 🔗 Implemented SFT with **[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)** and RL training with the **[Slime](https://github.com/THUDM/slime)** framework.
 
 ---
 
@@ -303,6 +304,15 @@ docker run --gpus all -it --rm \
 
 ---
 
+## 📮 Contact
+
+For feedback or collaboration opportunities, feel free to reach out!
+
+- **General questions:** Drop us an email at xushuwen23@mails.ucas.ac.cn.
+- **Code or implementation issues:** Open an issue directly in this repo *(highly recommended!)* — your question might help others too. 😊
+
+---
+
 ## 📄 Citation
 
 If you find GraphWalker useful in your research, please consider citing:
@@ -321,12 +331,15 @@ If you find GraphWalker useful in your research, please consider citing:
 
 > 📖 Preprint available on [arXiv:2603.28533](https://arxiv.org/abs/2603.28533)
 
+
+
 ---
 
 <div align="center">
   <sub>
     Made with ❤️ &nbsp;·&nbsp;
     <a href="https://arxiv.org/abs/2603.28533">Paper</a> &nbsp;·&nbsp;
-    <a href="https://huggingface.co/xushuwen23/GraphWalker-7B">Model</a>
+    <a href="https://huggingface.co/xushuwen23/GraphWalker-7B">Model</a> &nbsp;·&nbsp;
+    <a href="https://huggingface.co/datasets/xushuwen23/GraphWalkerBench">Dataset</a>
   </sub>
 </div>
