@@ -18,7 +18,7 @@
 ---
 
 ## 🔥 News
-
+[2026-07-08] 🎉 GraphWalker has been accpeted by COLM 2026, see you in San Francisco! 
 [2026-03-31] 🤗 The [GraphWalkerBench](https://huggingface.co/datasets/xushuwen23/GraphWalkerBench) dataset is now available. Give it a shot!  
 [2026-03-31] 🏆 GraphWalker achieves **SOTA** on **CWQ (79.6 EM)** and **WebQSP (91.5 EM)** among all agentic KGQA methods!  
 [2026-03-31] 🔗 Implemented SFT with **[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)** and RL training with the **[Slime](https://github.com/THUDM/slime)** framework.
