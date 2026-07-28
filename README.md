@@ -10,7 +10,9 @@
   <!-- 模型链接 -->
   <a href="https://huggingface.co/xushuwen23/GraphWalker-7B"><img src="https://img.shields.io/badge/🤗%20Model-GraphWalker--7B-ffd21e?style=for-the-badge" alt="HuggingFace"/></a>&nbsp;
   <!-- 数据集 -->
-  <a href="https://huggingface.co/datasets/xushuwen23/GraphWalkerBench"><img src="https://img.shields.io/badge/🤗%20Dataset-GraphWalkerBench-ffd21e?style=for-the-badge" alt="Dataset"/></a>
+  <a href="https://huggingface.co/datasets/xushuwen23/GraphWalkerBench"><img src="https://img.shields.io/badge/🤗%20Dataset-GraphWalkerBench-ffd21e?style=for-the-badge" alt="Dataset"/></a>&nbsp;
+  <!-- 项目主页 -->
+  <a href="https://xushuwenn.github.io/GraphWalker/"><img src="https://img.shields.io/badge/Project%20Page-GraphWalker-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Project Page"/></a>
 </p>
 
 </div>
