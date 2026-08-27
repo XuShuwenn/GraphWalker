@@ -1,3 +1,5 @@
+
+
 <div align="center">
 
 # <img src="assets/graphwalker_icon.png" width="256" height="256" style="vertical-align:middle"> 
@@ -253,7 +255,7 @@ bash run_eval_remote_vllm.sh
 # Step 1 — Random walk path generation
 # Generates random paths on the knowledge graph
 python kgqa_agent/scripts/random_walk.py \
-    --config kgqa_agent/configs/random_walk/3-5hop/random_walk_10k.yaml
+    --config kgqa_agent/configs/random_walk/3-5hop/random_walk_100k.yaml
 
 # Step 2 — QA / Info synthesis / Trajectory generation
 # Generates questions, synthesizes information, and creates training trajectories
